@@ -1,10 +1,10 @@
 <template>
   <div>
-    <div>총 지출 : {{ getAllSpend }} 원</div>
-    <div>총 수입 : {{ getAllIncome }} 원</div>
+    <div>총 지출 : {{ getAllSpend.toLocaleString('ko-KR') }} 원</div>
+    <div>총 수입 : {{ getAllIncome.toLocaleString('ko-KR') }} 원</div>
     <div>결산 금액 : 
         <span v-if=" (getAllIncome - getAllSpend) >=0"> + </span>
-        {{ getAllIncome - getAllSpend }} 원</div>
+        {{ (getAllIncome - getAllSpend).toLocaleString('ko-KR') }} 원</div>
     <input-view></input-view>
         <button @click="viewBoth">전체 보기</button>
         <button @click="viewSpend">지출만 보기</button>
@@ -57,6 +57,7 @@ export default {
     },
     updateContent(index){
         this.obj=this.contents[index]
+        this.index=index;
         this.showModal=true;
     },
     viewBoth(){

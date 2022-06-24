@@ -22,7 +22,7 @@ export default {
   methods: {
     inputData() {
         console.log(typeof this.money)
-      if (this.name !== "" && !isNaN(this.money)&&this.money ) {
+      if (this.name !== "" && !isNaN(this.money)&&this.money>0) {
         console.log("입력 클릭");
         const obj = {
           condition: this.condition,

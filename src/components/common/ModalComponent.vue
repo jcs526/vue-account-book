@@ -4,6 +4,10 @@
       <div class="modal-wrapper">
         <div class="modal-container">
           <div class="modal-header">
+            <select v-model="obj.condition">
+              <option value="spend">지출</option>
+              <option value="income">수입</option>
+            </select>
             <input type="text" v-model="obj.name" />
           </div>
 
@@ -38,7 +42,7 @@ export default {
   props: ["propsData", "index"],
   methods: {
     updateContent(obj, index) {
-      if (this.obj.name !== "" && !isNaN(this.obj.money) && this.obj.money) {
+      if (this.obj.name !== "" && !isNaN(this.obj.money) && this.obj.money>0) {
         this.$store.commit("UPDATE_CONTENT", { obj, index });
       } else {
         alert("입력값을 제대로 입력해주세요.");
